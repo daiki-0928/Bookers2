@@ -14,6 +14,9 @@
     <tr>
      <td><%= image_tag 'sample-author1.jpg' %></td>
      <td><%= user.name %></td>
+     <td><%= link_to user_path(user.id) do %>show
+         <% end %>
+     </td>
     </tr>
 
    <%end%>
