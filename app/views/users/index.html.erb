@@ -1,3 +1,5 @@
+<%= render 'books/newbook' ,book: @newbook %>
+
 <h2>Users</h2>
 
  <table>
@@ -12,7 +14,7 @@
   <tbody>
    <%@users.each do |user|%>
     <tr>
-     <td><%= image_tag 'sample-author1.jpg' %></td>
+     <td><%= image_tag user.get_profile_image(40,40) %></td>
      <td><%= user.name %></td>
      <td><%= link_to user_path(user.id) do %>show
          <% end %>

@@ -1,3 +1,4 @@
+<%= render 'newbook' ,book: @newbook %>
 <h2>Book detail</h2>
 
  <div>
@@ -10,3 +11,5 @@
     <%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
   <% end %>
  </div>
+
+
