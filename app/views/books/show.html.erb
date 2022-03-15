@@ -1,15 +1,27 @@
-<%= render 'newbook' ,book: @newbook %>
+<%= render 'books/newbook', book: @newbook, user: @user %>
+
 <h2>Book detail</h2>
 
- <div>
-  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
-  <p>Title：<%= @book.title %></p>
-  <p>説明：<%= @book.body %></p>
-  <p>ユーザーネーム：<%= @book.user.name %></p>
-  <% if @book.user == current_user %>
+<table class='table'>
+ <tr>
+  <td>
+    <%= image_tag @book.user.get_profile_image(40,40) %>
+    <%= link_to @book.user do %>
+     <%= @book.user.name %>
+    <% end %>
+  </td>
+  <td><%= @book.title %></td>
+  <td><%= @book.body %></td>
+  <td>
+    <% if @book.user == current_user %>
     <%= link_to "edit", edit_book_path(@book) %>
-    <%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
-  <% end %>
- </div>
+    <% end %>
+  </td>
+  <td>
+    <% if @book.user == current_user %>
+     <%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
+    <% end %>
+  </td>
+ </tr>
 
-
+</table>
