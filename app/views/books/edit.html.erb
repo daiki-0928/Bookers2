@@ -7,7 +7,6 @@
    <% end %>
   </ul>
 <% end %>
-
 <%= form_with model:@book do |f| %>
 
   <div>
@@ -25,7 +24,6 @@
   </div>
 
   <% end %>
-
  <%= link_to "show", book_path(@book.id) %>
   |
  <%= link_to "back", books_path %>
